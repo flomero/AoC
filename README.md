@@ -16,5 +16,5 @@
 | [Day 2](https://adventofcode.com/2021/day/2) | ⭐ | ⭐ |
 | [Day 3](https://adventofcode.com/2021/day/3) | ⭐ | ⭐ |
 
-![](https://img.shields.io/badge/day%20📅-3-blue)
+![](https://img.shields.io/badge/day%20📅-4-blue)
 ![](https://img.shields.io/badge/stars%20⭐-6-yellow)
