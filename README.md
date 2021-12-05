@@ -5,4 +5,4 @@
 
 ### Visualizations
 #### Day 5 - Part 2
-![](https://github.com/flomero/AoC/blob/main/2021/5/5-2.png?raw=true)
+![](https://github.com/flomero/AoC/blob/main/2021/5/img.png?raw=true)
