@@ -8,5 +8,5 @@
 | [Day 3](https://adventofcode.com/2021/day/3) | ⭐ | ⭐ |
 | [Day 4](https://adventofcode.com/2021/day/4) | ⭐ |   |
 
-![](https://img.shields.io/badge/day%20📅-4-blue)
-![](https://img.shields.io/badge/stars%20⭐-6-yellow)
+![](https://img.shields.io/badge/day%20📅-5-blue)
+![](https://img.shields.io/badge/stars%20⭐-8-yellow)
