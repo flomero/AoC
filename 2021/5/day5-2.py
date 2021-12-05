@@ -79,6 +79,5 @@ print(map)
 print(np.count_nonzero(map > 1))
 
 plt.imshow(map)
-plt.colorbar()
 plt.axis('off')
-plt.show()
+plt.savefig("C:/Users/flofi/repos/CodeImAdvent/2021/5/img.png", transparent=True)
