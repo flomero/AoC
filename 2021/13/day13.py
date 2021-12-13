@@ -37,5 +37,4 @@ paper = np.where(paper < 1, paper, 1)
 print(paper)
 
 plt.matshow(paper, cmap = cmap)
-plt.show()
 plt.savefig("C:/Users/flofi/repos/CodeImAdvent/2021/13/img.png", transparent=True)
