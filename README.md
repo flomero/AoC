@@ -1,7 +1,7 @@
 # Advent of Code 2021
 ## 2021 Results
-![](https://img.shields.io/badge/day%20📅-14-blue)
-![](https://img.shields.io/badge/stars%20⭐-27-yellow)
+![](https://img.shields.io/badge/day%20📅-15-blue)
+![](https://img.shields.io/badge/stars%20⭐-28-yellow)
 
 ### Visualizations
 #### Day 5 - Part 2
