@@ -2,7 +2,7 @@
 
 ## 2022 Results
 
-![](https://img.shields.io/badge/stars%20⭐-24-yellow#22)
+![](https://img.shields.io/badge/stars%20⭐-25-yellow#22)
 
 ## 2021 Results
 
