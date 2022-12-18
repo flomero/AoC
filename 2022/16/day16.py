@@ -113,12 +113,15 @@ partOne = 0
 ## 
 ## 
 ## plt.show()
-iterator = permutations(nonZeroValves)
+
+print(len(nonZeroValves))
+iterator = permutations(nonZeroValves, 6)
 
 test = 0
 res = 0
 
 for it in iterator:
+    print(it)
     count = 0
     for i in range(1, len(it)):
         count += connections[str(it[i] + it[i-1])]
