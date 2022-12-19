@@ -1,7 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 day = "18"
-source = "data"
+source = "test"
 file = "C:/Users/flofi/repos/CodeImAdvent/2022/" + day + "/" + source + ".txt"
 
 input = np.genfromtxt(file, dtype=int, delimiter=",")
@@ -17,3 +18,19 @@ for i in input:
             visible += 1
 
 print(visible)
+
+max = np.amax(input, axis=0)
+
+min = np.amin(input, axis=0)
+
+x = max[0] + 1
+y = max[1] + 1
+z = max[2] + 1
+
+print(x, y, z)
+
+map = np.zeros(shape=(x, y, z))
+print(map)
+
+for i in input:
+    map[np.array(i)] = 1
