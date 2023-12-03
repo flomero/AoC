@@ -38,7 +38,6 @@ for game in games:
     if valid:
         result += int(game)    
             
-print(games)
 print(result)
 
 # Part 2
@@ -48,9 +47,9 @@ result2 = 0
 for game in games:
     r = b = g = 0
     for step in games[game]:
-        if games[game][step].get('red', 0) > r: r = games[game][step].get('red', 0)
-        if games[game][step].get('blue', 0) > b: b = games[game][step].get('blue', 0)
-        if games[game][step].get('green', 0) > g: g = games[game][step].get('green', 0)
+        r = max(r, games[game][step].get('red', 0))
+        b = max(b, games[game][step].get('blue', 0))
+        g = max(g, games[game][step].get('green', 0))
     gamePowers[game] = r * b * g
 
 for game in gamePowers:
