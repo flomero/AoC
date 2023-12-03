@@ -37,12 +37,9 @@ for i in range(input.shape[0]):
             eol = bool(j == len(input[i])-1 and re.match(r'\d', input[i][j]))
             newNumber = True
             if number: 
-                #print("nr: " + number)
                 s = len(number)
-
                 if input[i][j] == "*":
                     addGear(i, j, number)
-               
                 if specialChar(input[i][j]):
                     print(number)
                     result += int(number)
@@ -52,40 +49,31 @@ for i in range(input.shape[0]):
                     s = s-1
                 if input[i][j-s-1] == "*":
                     addGear(i, j-s-1, number)
-
                 if specialChar(input[i][j-s-1]):
                     print(number)
                     result += int(number)
                     number = ""
                     continue
-
-                for k in range(2):
+                for k in [-1, 1]:
                     for l in range(s+2):
-                        if k ==0: k = -1
-                        if k ==1: k = 1
                         if (i+k) < 0 or (i+k) >= input.shape[0]:
                             continue
                         if (j-s-1+l) < 0 or (j-s-1+l) >= len(input[i+k]):
                             continue
-                        #print(input[i+k][j-s-1+l])
                         if input[i+k][j-s-1+l] == "*":
                             addGear(i+k, j-s-1+l, number)
-
                         if specialChar(input[i+k][j-s-1+l]):
                             print(number)
                             result += int(number)
                             number = ""
                             continue
-
             number = ""
 
 print(result)
 result2 = 0
                 
 for g in gears:
-    # if two elements
-    if len(gears[g]) == 2:
-        
+    if len(gears[g]) == 2:        
         ratio = int(gears[g][0])*int(gears[g][1])
         result2 += ratio
 
