@@ -41,7 +41,6 @@ for i in range(input.shape[0]):
                 if input[i][j] == "*":
                     addGear(i, j, number)
                 if specialChar(input[i][j]):
-                    print(number)
                     result += int(number)
                     number = ""
                     continue
@@ -50,7 +49,6 @@ for i in range(input.shape[0]):
                 if input[i][j-s-1] == "*":
                     addGear(i, j-s-1, number)
                 if specialChar(input[i][j-s-1]):
-                    print(number)
                     result += int(number)
                     number = ""
                     continue
