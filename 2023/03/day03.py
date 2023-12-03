@@ -38,21 +38,9 @@ for i in range(input.shape[0]):
             newNumber = True
             if number: 
                 s = len(number)
-                if input[i][j] == "*":
-                    addGear(i, j, number)
-                if specialChar(input[i][j]):
-                    result += int(number)
-                    number = ""
-                    continue
                 if eol:
                     s = s-1
-                if input[i][j-s-1] == "*":
-                    addGear(i, j-s-1, number)
-                if specialChar(input[i][j-s-1]):
-                    result += int(number)
-                    number = ""
-                    continue
-                for k in [-1, 1]:
+                for k in [-1, 0, 1]:
                     for l in range(s+2):
                         if (i+k) < 0 or (i+k) >= input.shape[0]:
                             continue
@@ -68,6 +56,7 @@ for i in range(input.shape[0]):
             number = ""
 
 print(result)
+
 result2 = 0
                 
 for g in gears:
