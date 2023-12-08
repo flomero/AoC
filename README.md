@@ -1,7 +1,7 @@
 # Advent of Code
 
 ## 2023 Results
-![](https://img.shields.io/badge/stars%20⭐-14-yellow#23)
+![](https://img.shields.io/badge/stars%20⭐-15-yellow#23)
 
 ## 2022 Results
 
