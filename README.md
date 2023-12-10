@@ -1,6 +1,7 @@
 # Advent of Code
 
 ## 2023 Results
+
 ![](https://img.shields.io/badge/stars%20⭐-18-yellow#23)
 
 ## 2022 Results
@@ -12,6 +13,12 @@
 ![](https://img.shields.io/badge/stars%20⭐-30-yellow)
 
 ## Visualizations
+
+### 2023
+
+#### Day 10
+
+![](/2023/10/loop.svg)
 
 ### 2022
 
