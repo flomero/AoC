@@ -31,7 +31,7 @@ for history in histories:
             break
         if len(step) == 0:
             step.append(0)
-        x = abs(step[-1] + steps[index + 1][-1])
+        x = step[-1] + steps[index + 1][-1]
         steps[index + 1].append(x)
 
     print(steps)
