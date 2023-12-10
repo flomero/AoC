@@ -1,6 +1,7 @@
 day = "09"
 source = "data"
 file = "C:/Users/flofi/repos/CodeImAdvent/2023/" + day + "/" + source + ".txt"
+part = 2
 
 histories = []
 result = 0
@@ -10,6 +11,8 @@ with open(file) as f:
         line = [int(n) for n in line.strip().split()]
         histories.append(line)
 
+if part == 2: 
+    histories = [history[::-1] for history in histories]
 
 for history in histories:
     print(history)
@@ -17,10 +20,10 @@ for history in histories:
     while True: 
         newline = []
         for i in range(len(steps[-1])- 1):
-            x = abs(steps[-1][i] - steps[-1][i+1])
+            x = steps[-1][i+1] - steps[-1][i]
             newline.append(x)
         steps.append(newline)
-        if newline.count(0) == len(newline):
+        if all(x == 0 for x in newline):
             break
     print(steps)
     # reverse steps
