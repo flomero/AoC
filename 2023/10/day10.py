@@ -1,5 +1,6 @@
 import re
 import matplotlib.pyplot as plt
+import matplotlib
 
 day = "10"
 source = "data"
@@ -210,17 +211,17 @@ print(result)
 for i in range(len(input)):
     for j in range(len(input[i])):
         if input[i][j] == "#":
-            input[i] = input[i][:j] + "5" + input[i][j+1:]
+            input[i] = input[i][:j] + "9" + input[i][j+1:]
         elif input[i][j] == " ":
             input[i] = input[i][:j] + "0" + input[i][j+1:]
         else:
-            input[i] = input[i][:j] + "1" + input[i][j+1:]
+            input[i] = input[i][:j] + "4" + input[i][j+1:]
     input[i] = list(input[i])
     input[i] = list(map(int, input[i]))
 
 
-
-plt.imshow(input, interpolation='none')
+cmap = matplotlib.colors.ListedColormap(['lightgrey', 'black', 'red'])
+plt.imshow(input, interpolation='none', cmap=cmap)
 # no axis
 plt.axis('off')
 plt.savefig("C:/Users/flofi/repos/CodeImAdvent/2023/10/loop.svg", bbox_inches='tight', pad_inches=0.0)
