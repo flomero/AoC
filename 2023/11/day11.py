@@ -60,18 +60,25 @@ rowDots = findDots(input)
 print(colDots)
 print(rowDots)
 
+galaxys = []
+
+for i in range(0, len(input)):
+    for j in range(0, len(input[i])):
+        if input[i][j] == "#":
+            galaxys.append([i, j])
+
 def findPath2(start, end):
     dist = abs(start[0] - end[0]) + abs(start[1] - end[1])
     for r in rowDots:
         mi =  min(start[0], end[0])
         ma = max(start[0], end[0])
         if mi < r < ma:
-            dist += factor - 2
+            dist += factor - 1
     for c in colDots:
         mi =  min(start[1], end[1])
         ma = max(start[1], end[1])
         if mi < c < ma:
-            dist += factor - 2
+            dist += factor - 1
     return dist
 
 result = 0
