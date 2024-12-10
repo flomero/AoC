@@ -4,7 +4,6 @@ import numpy as np
 day = "10"
 source = "data"
 file = f"C:/Users/flofi/repos/CodeImAdvent/2024/{day}/{source}.txt"
-part = 1
 
 result = 0
 
@@ -27,19 +26,20 @@ def is_valid_move(map_data, x, y, height):
 trailheads = np.argwhere(map_data == 0)
 scores = {}
 
+part = 1
 for trailhead in trailheads:
 	start_x, start_y = trailhead
 	visited = set()
 	stack = [(start_x, start_y)]
-	nines = set()
+	nines = []
 
 	while stack:
 		x, y = stack.pop()
-		if (x, y) in visited:
+		if part == 1 and (x, y) in visited:
 			continue
 		visited.add((x, y))
 		if map_data[x, y] == 9:
-			nines.add((x, y))
+			nines.append((x, y))
 			continue
 		for dx, dy in directions:
 			nx, ny = x + dx, y + dy
@@ -53,20 +53,20 @@ result = sum(scores.values())
 print(result)
 
 # Part 2
-def distinct(map, x, y):
-	if map[x, y] == 9:
-		return 1
-	trails = 0
-	for dx, dy in directions:
-		nx, ny = x + dx, y + dy
-		if is_valid_move(map_data, nx, ny, map_data[x, y]):
-			trails += distinct(map_data, nx, ny)
-	return trails
+# def distinct(map, x, y):
+# 	if map[x, y] == 9:
+# 		return 1
+# 	trails = 0
+# 	for dx, dy in directions:
+# 		nx, ny = x + dx, y + dy
+# 		if is_valid_move(map_data, nx, ny, map_data[x, y]):
+# 			trails += distinct(map_data, nx, ny)
+# 	return trails
 
-result = 0
+# result = 0
 
-for trailhead in trailheads:
-	x, y = trailhead
-	result += distinct(map_data, x, y)
+# for trailhead in trailheads:
+# 	x, y = trailhead
+# 	result += distinct(map_data, x, y)
 
-print(result)
+# print(result)
