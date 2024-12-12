@@ -25,6 +25,8 @@ def dir_90_clockwise(dx, dy):
 		return -1, 0
 	elif dx == -1 and dy == 0:
 		return 0, 1
+	else:
+		raise ValueError
 
 def find_region(data, start, visited):
 	queue = deque([start])
