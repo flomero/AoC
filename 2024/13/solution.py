@@ -47,11 +47,33 @@ def play(A, B, prize):
 
 	return min_cost if found else 0
 
+# Part 2
+def play2(A, B, prize):
+	ax, ay = A
+	bx, by = B
+	px, py = prize
+
+	px = px + 10000000000000
+	py = py + 10000000000000
+	
+	a = (px * by - py * bx) // (ax * by - ay * bx)
+	b = (px * ay - py * ax) // (bx * ay - by * ax)
+
+	if a * ax + b * bx == px and a * ay + b * by == py:
+		return 3 * a + b
+	return 0
+
 result = 0
+result2 = 0
 for entry in data:
 	A = tuple(entry[0])
 	B = tuple(entry[1])
 	prize = tuple(entry[2])
 	result += play(A, B, prize)
+	this = play2(A, B, prize)
+	print(this)
+	result2 += this
 
+print('-----------')
 printc(result)
+printc(result2)
