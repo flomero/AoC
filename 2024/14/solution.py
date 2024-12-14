@@ -1,6 +1,7 @@
 from pprint import pprint
 import pyperclip
-import re
+import matplotlib.pyplot as plt
+import math
 
 def printc(arg):
 	print(arg)
@@ -26,13 +27,15 @@ for line in rawdata:
 
 pprint(data)
 
+copy = data.copy()
+
 result = 0
 
 maxseconds = 100
 width = 101
 height = 103
 
-def robotswalk(data, width, height, seconds):
+def robotswalk(data, width, height, seconds, visualize=False):
 	grid = [[0 for _ in range(width)] for _ in range(height)]
 
 	for ((px, py), (vx, vy)) in data:
@@ -40,6 +43,13 @@ def robotswalk(data, width, height, seconds):
 			px = (px + vx) % width
 			py = (py + vy) % height
 		grid[py][px] += 1
+
+	if visualize:
+		plt.imshow(grid, cmap='Blues', interpolation='nearest')
+		plt.colorbar()
+		plt.show(block=False)
+		plt.pause(1)
+		plt.clf()
 
 	return grid
 
@@ -81,3 +91,45 @@ quadrants = count_quadrants(grid)
 pprint(quadrants)
 result = multiply(quadrants)
 printc(result)
+
+# part 2
+
+
+
+def calculate_density(grid):
+	height = len(grid)
+	width = len(grid[0])
+	total_density = 0
+	robot_positions = []
+
+	for y in range(height):
+		for x in range(width):
+			if grid[y][x] > 0:
+				robot_positions.append((x, y))
+
+	for i, (x1, y1) in enumerate(robot_positions):
+		for j in range(i + 1, len(robot_positions)):
+			x2, y2 = robot_positions[j]
+			distance = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+			if distance > 0:
+				total_density += 1 / distance
+
+	return total_density
+
+def visualize(grid):
+	plt.imshow(grid, cmap='Blues', interpolation='nearest')
+	plt.axis('off')
+	plt.show(block=False)
+	plt.pause(10)
+	plt.clf()
+
+seconds = 84
+while seconds < 10000:
+	grid = robotswalk(data, width, height, seconds, False)
+	density = calculate_density(grid)
+	if density > 6000:
+		printc((seconds, density))
+		visualize(grid)
+		
+	seconds += 101
+
