@@ -92,6 +92,11 @@ if part == 1:
 	pprint(map)
 	printc(result)
 
+import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
+from matplotlib.animation import FuncAnimation
+
+
 
 # Part 2
 resized_map = []
@@ -109,11 +114,25 @@ for row in map:
 	resized_map.append(resized_row)
 resized_map = np.array(resized_map)
 
-rows, cols = resized_map.shape
+viz = 1
+if viz:
+	frames = []
 
+rows, cols = resized_map.shape
 start_pos = np.where(resized_map == '@')
 start_pos = (start_pos[0][0], start_pos[1][0])
 resized_map[start_pos] = '.'
+
+tile_numeric = {
+	'#': 1,  # Wall
+	'.': 0,  # Floor
+	'O': 3,  # Box
+	'@': 4,  # Player
+	'[': 3,  # Box part
+	']': 3   # Box part
+}
+
+i = 1000
 
 def findnew(map, maybe, dr, dc):
 	new = set()
@@ -160,6 +179,25 @@ for moves in movements:
 		for point, c in possible:
 			pr, pc = point
 			resized_map[pr + dr, pc + dc] = c
+	
+	if viz and i > 0:
+		numeric_map = np.array([[tile_numeric[tile] for tile in row] for row in resized_map])
+		numeric_map[start_pos] = 10
+		frames.append(numeric_map)
+		i -= 1
+
+def animate(i):
+	current_frame = frames[i]
+	im.set_data(current_frame)
+	return [im]
+
+if viz:
+	fig, ax = plt.subplots()
+	ax.set_xticks([])
+	ax.set_yticks([])
+	im = ax.imshow(np.full(resized_map.shape, fill_value=0), cmap='tab20', norm=mcolors.Normalize(vmin=0, vmax=10))
+	anim = FuncAnimation(fig, animate, frames=len(frames), interval=50)
+	anim.save("C:/Users/flofi/repos/CodeImAdvent/2024/15/animation.gif")
 
 result = 0
 for r in range(rows):

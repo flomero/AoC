@@ -1,18 +1,20 @@
 # Advent of Code
 
-## 2023 Results
-
-![](https://img.shields.io/badge/stars%20⭐-26-yellow#23)
-
-## 2022 Results
-
-![](https://img.shields.io/badge/stars%20⭐-29-yellow#22)
-
-## 2021 Results
-
-![](https://img.shields.io/badge/stars%20⭐-30-yellow)
-
 ## Visualizations
+
+### 2024
+
+#### Day 14
+
+![](/2024/14/tree.png)
+
+#### Day 15
+
+Example (full)
+![](/2024/15/example.gif)
+
+Data (just the first 1000 iterations)
+![](/2024/15/1000steps.gif)
 
 ### 2023
 
