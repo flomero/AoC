@@ -1,5 +1,6 @@
 from pprint import pprint
 import pyperclip
+import matplotlib.pyplot as plt
 
 def printc(arg):
 	print(arg)
@@ -118,3 +119,20 @@ for row in data:
 # print(len(paths))
 # pprint(data)
 printc(result)
+
+# convert to numeric 2d array
+maze = []
+for row in data:
+	maze.append([])
+	for char in row:
+		if char == '#':
+			maze[-1].append(1)
+		elif char == 'X':
+			maze[-1].append(2)
+		else:
+			maze[-1].append(0)
+
+# hide all axes
+plt.axis('off')
+plt.imshow(maze)
+plt.savefig(f"C:/Users/flofi/repos/CodeImAdvent/2024/{day}/viz.png", bbox_inches='tight', pad_inches=0, dpi=300)

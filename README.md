@@ -16,6 +16,10 @@ Example (full)
 Data (just the first 1000 iterations)
 ![](/2024/15/1000steps.gif)
 
+#### Day 16
+
+![](/2024/16/viz.png)
+
 ### 2023
 
 #### Day 10
