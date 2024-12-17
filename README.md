@@ -11,9 +11,11 @@
 #### Day 15
 
 Example (full)
+
 ![](/2024/15/example.gif)
 
 Data (just the first 1000 iterations)
+
 ![](/2024/15/1000steps.gif)
 
 #### Day 16
