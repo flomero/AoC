@@ -19,6 +19,7 @@ with open(file, "r") as f:
 initial = {}
 gates = []
 
+
 def compute_gate(gtype, a, b):
 	if gtype == "AND":
 		return a & b
@@ -26,6 +27,15 @@ def compute_gate(gtype, a, b):
 		return a | b
 	elif gtype == "XOR":
 		return a ^ b
+	return None
+
+def rev_gate(gate_type, output, a):
+	if gate_type == "AND":
+		return output & a
+	elif gate_type == "OR":
+		return output | a
+	elif gate_type == "XOR":
+		return output ^ a
 	return None
 
 for line in rawdata:
@@ -44,6 +54,12 @@ for line in rawdata:
 
 wires = initial.copy()
 
+expectedorder = ["XOR", "AND", "AND", "XOR", "OR"]
+indexorder = 0
+
+# sort wires by a
+wires = dict(sorted(wires.items()))
+
 while True:
 	progress = False
 
@@ -54,6 +70,10 @@ while True:
 		if a in wires and b in wires:
 			x = wires[a]
 			y = wires[b]
+			# check if right gate in order
+			# if gate_type != expectedorder[indexorder % len(expectedorder)]:
+			# 	print(a, b, output)
+			print(a, b,  gate_type, output)
 			wires[output] = compute_gate(gate_type, x, y)
 			progress = True
 
@@ -62,17 +82,50 @@ while True:
 
 wires = dict(sorted(wires.items()))
 
-for wire, value in wires.items():
-	print(wire, value)
+# for wire, value in wires.items():
+# 	print(wire, value)
 
 result = ''
 for wire, value in wires.items():
 	if wire.startswith("z"):
 		result += str(value)
 
-print(result)
+# print(result)
 #reverse string
 result = result[::-1]
 result = int(result, 2)
 
 printc(result)
+
+# x = ''
+# y = ''
+# for wire, value in wires.items():
+# 	if wire.startswith("x"):
+# 		x += str(value)
+# 	elif wire.startswith("y"):
+# 		y += str(value)
+
+# x = x[::-1]
+# y = y[::-1]
+
+
+
+# printc(x)
+# printc(y)
+
+# def wrong_bits(x, y, z):
+# 	excepted = bin(x & y)[2:]
+# 	wrong = []
+# 	z = bin(z)[2:]
+	
+# 	z = z.zfill(len(excepted))
+# 	print(excepted, int(excepted, 2))
+# 	print(z, int(z, 2))
+# 	for i in range(len(z)):
+# 		if z[i] != excepted[i]:
+# 			wrong.append(i)
+# 	return wrong
+
+# wrong = wrong_bits(x, y, result)
+# printc(wrong)
+
